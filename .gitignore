@@ -1,0 +1,19 @@
+# folders to ignore
+log/
+node_modules/
+bower_components/
+design/
+upload/
+.sass-cache/
+.settings/
+.idea/
+.project/
+
+# extensions
+*.zip
+*.log
+*.bundle
+*.rdb
+
+# Os
+.DS_Store
