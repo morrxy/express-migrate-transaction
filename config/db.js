@@ -11,7 +11,7 @@ const local = {
   host: '127.0.0.1',
   user: 'root',
   password: '',
-  database: 'todolist',
+  database: 'express-trans',
   port: 3306,
   charset: 'utf8mb4'
 };
