@@ -2,7 +2,6 @@
 
 const Promise = require('bluebird');
 
-const todoDao = require('../../model/todo');
 const sendError = require('../../helper/sendError');
 
 module.exports = (req, res) => {
@@ -25,5 +24,6 @@ module.exports = (req, res) => {
 };
 
 function getTodoList() {
-  return todoDao.list();
+  const todo = require('../../model/todo');
+  return todo.list();
 }

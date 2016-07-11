@@ -2,19 +2,18 @@
 
 const Promise = require('bluebird');
 
-const todoDao = require('../../model/todo');
 const sendError = require('../../helper/sendError');
 
 module.exports = (req, res) => {
-  const todoId = req.params.todo_id;
+  const title = req.body.title;
 
   Promise.resolve()
   .then(() => {
-    return removeTodo(todoId);
+    return addTodo(title);
   })
   .then((data) => {
     res.send({
-      data: data,
+      data: {},
       status: {
         code: 0,
         msg: 'ok'
@@ -26,8 +25,9 @@ module.exports = (req, res) => {
   });
 };
 
-function removeTodo(id) {
-  return todoDao.remove({
-    todoId: id
+function addTodo(title) {
+  const todo = require('../../model/todo');
+  return todo.addTrans({
+    title: title
   })
 }
