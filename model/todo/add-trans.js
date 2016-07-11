@@ -1,8 +1,5 @@
 'use strict';
 
-const Promise = require('bluebird');
-
-const db = require('../../config/db');
 const sequelize = require('../../config/sequelize');
 
 module.exports = (param) => {
@@ -16,6 +13,7 @@ module.exports = (param) => {
     .spread((results, metadata) => {
       const insertId = results.insertId;
 
+      //模拟事务过程中出错,插入的todo的id为偶数时候出错
       if (insertId % 2 === 0) {
         const err = new Error('服务器错误');
         err.code = 1;
